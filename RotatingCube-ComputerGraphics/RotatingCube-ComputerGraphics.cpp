@@ -1,4 +1,5 @@
-#include "olcConsoleGameEngine.h"
+#define OLC_PGE_APPLICATION
+#include "olcPixelGameEngine.h"
 using namespace std;
 
 struct vec3d
@@ -21,12 +22,12 @@ struct mat4x4
     float m[4][4] = { 0 };
 };
 
-class olcEngine3D : public olcConsoleGameEngine
+class olcEngine3D : public olc::PixelGameEngine
 {
 public:
     olcEngine3D()
     {
-        m_sAppName = L"3D Demo";
+        sAppName = "3D Demo";
     }
 
 private:
@@ -97,7 +98,8 @@ public:
 
     bool OnUserUpdate(float fElapsedTime) override
     {
-        Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, FG_BLACK);
+        //Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, FG_BLACK);
+        Clear(olc::BLACK);
 
         mat4x4 matRotZ, matRotX;
         fTheta += 1.0 * fElapsedTime;
@@ -157,7 +159,7 @@ public:
             DrawTriangle(triProjected.p[0].x, triProjected.p[0].y,
                 triProjected.p[1].x, triProjected.p[1].y,
                 triProjected.p[2].x, triProjected.p[2].y,
-                PIXEL_SOLID, FG_WHITE);
+                 olc::WHITE);
         }
 
         return true;
@@ -167,7 +169,7 @@ public:
 int main()
 {
     olcEngine3D demo;
-    if (demo.ConstructConsole(226, 210, 4, 4))
+    if (demo.Construct(256, 240, 2, 2))
         demo.Start();
     return 0;
 }
