@@ -98,7 +98,6 @@ public:
 
     bool OnUserUpdate(float fElapsedTime) override
     {
-        //Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, FG_BLACK);
         Clear(olc::BLACK);
 
         mat4x4 matRotZ, matRotX;

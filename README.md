@@ -11,3 +11,5 @@ The project is inspired by the video tutorial from JavidX9: "Code-It-Yourself! 3
 - JavidX9 - One Lone Coder YouTube Channel
 
 - olcPixelGameEngine Documentation
+
+![Cube](Cube.gif)
